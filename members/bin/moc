@@ -1,3 +1,7 @@
 #!/usr/bin/env ruby
 
-puts "Hello Worlds"
+require './lib/members'
+
+Members::CLI.new.call
+
+
