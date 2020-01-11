@@ -9,30 +9,30 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Rommel Haynes'"]
   spec.email         = ["'rhaynes3k@gmail.com'"]
 
-<<<<<<< HEAD
+
   spec.summary       = %q{"test"}
   spec.description   = %q{"test2"}
-  spec.homepage      = "https://github.com/rhaynes3k/learn-co-sandbox"
-=======
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
->>>>>>> fc357086778f7680ea3fbc30d16c3b54d0fd082d
+  spec.homepage      = "https://github.com/rhaynes3k/members"
+
+  spec.summary       = %q{"test"}
+  spec.description   = %q{"test"}
+  spec.homepage      = "https://github.com/rhaynes3k/members"
+
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
     spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
-<<<<<<< HEAD
-    spec.metadata["homepage_uri"] = "https://github.com/rhaynes3k/learn-co-sandbox"
-    spec.metadata["source_code_uri"] = "https://github.com/rhaynes3k/learn-co-sandbox"
-    spec.metadata["changelog_uri"] = "https://github.com/rhaynes3k/learn-co-sandbox"
-=======
-    spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-    spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
->>>>>>> fc357086778f7680ea3fbc30d16c3b54d0fd082d
+
+    spec.metadata["homepage_uri"] = "https://github.com/rhaynes3k/members"
+    spec.metadata["source_code_uri"] = "https://github.com/rhaynes3k/members"
+    spec.metadata["changelog_uri"] = "https://github.com/rhaynes3k/members"
+
+    spec.metadata["homepage_uri"] = "https://github.com/rhaynes3k/members"
+    spec.metadata["source_code_uri"] = "https://github.com/rhaynes3k/members"
+    spec.metadata["changelog_uri"] = "https://github.com/rhaynes3k/members"
+
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
@@ -49,10 +49,9 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
-<<<<<<< HEAD
+
   spec.add_development_dependency "pry"
-  
   spec.add_dependency "nokogiri"
-=======
->>>>>>> fc357086778f7680ea3fbc30d16c3b54d0fd082d
+
+
 end
