@@ -6,6 +6,5 @@ require_relative "./members/version"
 require_relative './members/cli'
 require_relative './members/mem_srch'
 
-require "members/version"
 
 

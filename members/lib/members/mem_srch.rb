@@ -4,8 +4,8 @@ class Members::Mem_srch
     
   end
   
-  def loc_srch
-    rep = Nokogiri::HTML(open("https://www.congress.gov/members?q={%22congress%22:116}&searchResultViewType=expanded&KWICView=false"))
+  def self.loc_srch
+   #rep = Nokogiri::HTML(open("https://www.congress.gov/members?q={%22congress%22:116}&searchResultViewType=expanded&KWICView=false"))
     binding.pry
   end
   
