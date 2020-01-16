@@ -3,5 +3,3 @@
 require './lib/members'
 
 Members::CLI.new.call
-
-
