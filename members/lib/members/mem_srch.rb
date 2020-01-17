@@ -13,7 +13,9 @@ class Mem_srch
         party = cong.css(".result-item span")[2].text
         state = cong.css(".result-item span")[0].text
         affl = mem_info[0]
-        Member_details.new(f_name, l_name, party, state, affl)
+        served = cong.css(".result-item li").text
+        #binding.pry
+        Member_details.new(f_name, l_name, party, state, affl, served)
         #binding.pry
       end
       page += 1
