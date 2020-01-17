@@ -39,34 +39,38 @@ class Members::CLI
         #binding.pry
       else
         puts "No way!"
-        next?
+        search_query
       end
     end
 
   def more
-    puts "For more information on a congressperson select a number."
+    puts "For more information on a congressperson select a number - or select 0 to search again."
     pick = gets.chomp.to_i
-    x = g.collect{|m|m}
+    if pick > 0
+      x = g.collect{|m|m}
     mem_pick = x[pick-1].party
     puts "*****************************************************************"
     puts "#{x[pick-1].f_name} #{x[pick-1].l_name.delete ","}'s party is #{mem_pick}"
-    puts "#{x[pick-1].f_name}'s served congress's #{x[pick-1].served}"
+    puts "#{x[pick-1].f_name} served congress's #{x[pick-1].served}"
     puts "*****************************************************************"
-
+    next?
+    else
+      search_query
+    end
     #mem_pick
        #binding.pry
   end
 
   def next?
     puts "Would you like to search again? Yes or No"
-    ans = gets.chomp
+    ans = gets.chomp.downcase
     case ans
 
-      when "Yes"||"yes"
+      when "yes"
         search_query
-        list_members
-        next?
-      when "No"||"no"
+        #list_members
+        more
+      when "no"
         goodbye
     end
   end
