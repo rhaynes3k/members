@@ -20,16 +20,14 @@ class Members::CLI
   def search_query
     puts "*****************************************************************"
 
-    puts "               Welcome to Congre-search"
+    puts "               WELCOME TO CONGRE-SEARCH"
 
     puts "*****************************************************************"
-    puts "    Enter state:"
+    puts "    Enter a state to see congressional information:"
     @st_sel = gets.chomp
-    #@st_sel = states[1] if @st_sel == states[0] | states[1] | states[2] | states[3]
       sts = []
       Member_details.all.each do|s|
         sts << s.state.downcase
-#binding.pry
       end
       if sts.include?(@st_sel.downcase)
         puts "The congressional line-up for the state of #{@st_sel.capitalize}"

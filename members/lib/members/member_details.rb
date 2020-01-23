@@ -20,8 +20,4 @@ class Member_details
     @@all
   end
 
-  def assign_values
-
-  end
-
 end
