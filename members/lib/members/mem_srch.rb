@@ -6,22 +6,19 @@ class Mem_srch
     rep = Nokogiri::HTML(open("https://www.congress.gov/members?q={%22congress%22:%22116%22}&searchResultViewType=expanded&KWICView=false&pageSize=250&page=#{page}"))
     congs = rep.css(".expanded").each do|cong|
         mem_info = cong.css(".result-heading a").text.split
-        f_name = mem_info[2, 3].join(" ")
-        l_name = mem_info[1]
-        affl = mem_info[0]
-        specs = cong.text.split("\n").map{|e|e.strip}.reject{|e|e.empty?}
-        spec1a = specs[3]
-        spec1b = specs[4]
-        spec2a = specs[5]
-        spec2b = specs[6]
-        spec3a = specs[7]
-        spec3b = specs[8]
-        spec4a = specs[9]
-        spec4b = specs[10]
-        spec5a= specs[5]
-        spec5b = specs[6]
-        Member_details.new(f_name, l_name, affl, spec1a, spec1b, spec2a, spec2b, spec3a, spec3b, spec4a, spec4b, spec5a, spec5b)
-#binding.pry
+        specs = cong.text.split("\n").map{|e|e.strip.gsub(":", "").downcase}.reject{|e|e.empty?}
+
+        attributes = {
+          :f_name =>  mem_info[2, 3].join(" "),
+          :l_name => mem_info[1],
+          :affl => mem_info[0],
+          specs[3] => specs[4].capitalize,
+          specs[5] => specs[6].capitalize,
+          specs[7] => specs[8].capitalize,
+          specs[9] => specs[10]
+        }.compact
+
+        Member_details.new(attributes)
       end
       page += 1
     end
