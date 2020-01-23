@@ -1,8 +1,6 @@
 # Members
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/members`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+My gem scrapes a government website for every member of our 116th US Congress(House and Senate). It then offers additional details about selected members.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Enter a state name when prompted. Follow proceeding instructions.
 
 ## Development
 
