@@ -8,8 +8,8 @@ class Members::CLI
 
   def list_members
     i = 1
-    @g = Member_details.all.select do|m|m.spec1b
-      if m.spec1b.downcase == @st_sel.downcase
+    @g = Member_details.all.select do|m|m.state
+      if m.state.downcase == @st_sel.downcase
         puts "#{i}. #{m.f_name} #{m.l_name} #{m.affl}"
         puts "*****************************************************************"
         i+=1
@@ -25,9 +25,11 @@ class Members::CLI
     puts "*****************************************************************"
     puts "    Enter state:"
     @st_sel = gets.chomp
+    #@st_sel = states[1] if @st_sel == states[0] | states[1] | states[2] | states[3]
       sts = []
       Member_details.all.each do|s|
-        sts << s.spec1b.downcase
+        sts << s.state.downcase
+#binding.pry
       end
       if sts.include?(@st_sel.downcase)
         puts "The congressional line-up for the state of #{@st_sel.capitalize}"
@@ -43,28 +45,28 @@ class Members::CLI
 
   def more
     puts "For more information on a congressperson select a number."
-    puts "Select 0 to search again."
-    puts "Select any key to exit"
+    puts
+    puts "Enter 0 to search again. Enter 111 to exit"
     pick = gets.chomp.to_i
-    if pick > 0
+    if pick > 0 && pick < @g.length+1
       x = @g.collect{|m|m}
       puts "*****************************************************************"
       puts "#{x[pick-1].affl} #{x[pick-1].f_name} #{x[pick-1].l_name.delete ","}"
-      puts "#{x[pick-1].spec1a} #{x[pick-1].spec1b}"
-      puts "#{x[pick-1].spec3a} #{x[pick-1].spec3b.split("                    ").join("     ")}"
-      puts "#{x[pick-1].spec4a} #{x[pick-1].spec4b}"
-      puts "#{x[pick-1].spec2a} #{x[pick-1].spec2b}"
+      puts "State: #{x[pick-1].state}"
+      puts "Party: #{x[pick-1].party}"
+      puts "District: #{x[pick-1].district}"
+      puts "Served: #{x[pick-1].served.split("                    ").join("     ")}"
       puts "*****************************************************************"
-      next?
+      more
     elsif pick == 0
-      search_query
-    else
+      next?
+    elsif pick > 100
       goodbye
     end
   end
 
   def next?
-    puts "Would you like to search again? Yes or No?"
+    puts "Would you like to search a different state? Yes or No?"
     ans = gets.chomp.downcase
     case ans
       when "yes"
@@ -82,4 +84,5 @@ class Members::CLI
     puts "Thank you! Have a great day!"
     exit
   end
+
 end
